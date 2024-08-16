@@ -1,0 +1,322 @@
+<?php
+include("header.php"); 
+$sql = "SELECT * FROM 005_fuelprices_users";
+$station_manager_list = mysqli_query($conn, $sql);
+
+$sql = "SELECT * FROM `005_fuelprices_user_title`";
+$user_titles = mysqli_query($conn, $sql);
+?>
+<section id="features" class="features" style="margin-top: 20px;padding-bottom: 0px !important;">
+  <div class="container">
+    <div class="row">
+        <div class="section-content" style="margin-left: auto; margin-right: auto;">
+            <div class="">
+                <h1 class="pb-3" style="font-size:24px;">Register</h1>
+            </div>
+            <form method="POST" class="" style="width: 100%; min-height: 500px;" id="myForm" enctype="multipart/form-data">
+                <div class="form-row">
+                    <!-- <div class="form-group col-md-2">
+                        <label for="title">Title<span class="required">*</span></label>
+                        <select class="form-control" id="title" name="title">
+                            <?php 
+                            // while($row = mysqli_fetch_assoc($user_titles)) {
+                            //     ?>
+                            //     <option value="<?php echo $row['id']; ?>"><?php echo $row['title']; ?></option>
+                            //     <?php 
+                            // }
+                            ?>
+                        </select>
+                        <small id="titleError" class="form-text text-danger"></small>
+                    </div> -->
+                    <div class="form-group col-md-6">
+                        <label for="first_name">First Name<span class="required">*</span></label>
+                        <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name">
+                        <small id="firstNameError" class="form-text text-danger"></small>
+                    </div>
+                    <!-- <div class="form-group col-md-4">
+                        <label for="middle_name">Middle Name</label>
+                        <input type="text" class="form-control" id="middle_name" name="middle_name" placeholder="Middle Name">
+                        <small id="middleNameError" class="form-text text-danger"></small>
+                    </div> -->
+                    <div class="form-group col-md-6">
+                        <label for="last_name">Last Name<span class="required">*</span></label>
+                        <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name">
+                        <small id="lastNameError" class="form-text text-danger"></small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email<span class="required">*</span></label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email address">
+                    <small id="emailError" class="form-text text-danger"></small>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password<span class="required">*</span></label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+                    <small id="passwordError" class="form-text text-danger"></small>
+                </div>
+                <div class="form-group">
+                    <label for="confirm_password">Confirm Password<span class="required">*</span></label>
+                    <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Enter password">
+                    <small id="confirmPasswordError" class="form-text text-danger"></small>
+                </div>
+                <!-- <div class="form-group">
+                    <label for="street_address">Street Address<span class="required">*</span></label>
+                    <input type="text" class="form-control" id="street_address" name="street_address" placeholder="Enter street address">
+                    <small id="streetAddressError" class="form-text text-danger"></small>
+                </div>
+                <div class="form-group">
+                    <label for="street_address_2">Street Address 2</label>
+                    <input type="text" class="form-control" id="street_address_2" name="street_address_2" placeholder="Enter street address 2">
+                    <small id="streetAddress2Error" class="form-text text-danger"></small>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                    <label for="city">City<span class="required">*</span></label>
+                    <input type="text" class="form-control" id="city" name="city" placeholder="Enter city">
+                    <small id="cityError" class="form-text text-danger"></small>
+                    </div>
+                    <div class="form-group col-md-6">
+                    <label for="state">Select State<span class="required">*</span></label>
+                    <select class="form-control" id="state" name="state">
+                        <option value="Abia">Abia</option>
+                        <option value="Adamawa">Adamawa</option>
+                        <option value="Akwa Ibom">Akwa Ibom</option>
+                        <option value="Anambra">Anambra</option>
+                        <option value="Bauchi">Bauchi</option>
+                        <option value="Bayelsa">Bayelsa</option>
+                        <option value="Benue">Benue</option>
+                        <option value="Borno">Borno</option>
+                        <option value="Cross River">Cross River</option>
+                        <option value="Delta">Delta</option>
+                        <option value="Ebonyi">Ebonyi</option>
+                        <option value="Edo">Edo</option>
+                        <option value="Ekiti">Ekiti</option>
+                        <option value="Enugu">Enugu</option>
+                        <option value="Gombe">Gombe</option>
+                        <option value="Imo">Imo</option>
+                        <option value="Jigawa">Jigawa</option>
+                        <option value="Kaduna">Kaduna</option>
+                        <option value="Kano">Kano</option>
+                        <option value="Katsina">Katsina</option>
+                        <option value="Kebbi">Kebbi</option>
+                        <option value="Kogi">Kogi</option>
+                        <option value="Kwara">Kwara</option>
+                        <option value="Lagos">Lagos</option>
+                        <option value="Nasarawa">Nasarawa</option>
+                        <option value="Niger">Niger</option>
+                        <option value="Ogun">Ogun</option>
+                        <option value="Ondo">Ondo</option>
+                        <option value="Osun">Osun</option>
+                        <option value="Oyo">Oyo</option>
+                        <option value="Plateau">Plateau</option>
+                        <option value="Rivers">Rivers</option>
+                        <option value="Sokoto">Sokoto</option>
+                        <option value="Taraba">Taraba</option>
+                        <option value="Yobe">Yobe</option>
+                        <option value="Zamfara">Zamfara</option>
+                        <option value="FCT">Federal Capital Territory</option>
+                    </select>
+                    <small id="stateError" class="form-text text-danger"></small>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                    <label for="zipcode">Zip Code<span class="required">*</span></label>
+                    <input type="text" class="form-control" id="zipcode" name="zipcode" placeholder="Enter zip code">
+                    <small id="zipcodeError" class="form-text text-danger"></small>
+                    </div>
+                    <div class="form-group col-md-6">
+                    <label for="country">Country<span class="required">*</span></label>
+                    <select class="form-control" id="country" name="country">
+                        <option value="Nigeria">Nigeria</option>
+                    </select>
+                    <small id="countryError" class="form-text text-danger"></small>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="phone">Phone<span class="required">*</span></label>
+                        <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter Phone">
+                        <small id="phoneError" class="form-text text-danger"></small>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="phone2">Phone 2</label>
+                        <input type="text" class="form-control" id="phone2" name="phone2" placeholder="Enter Phone 2">
+                        <small id="phone2Error" class="form-text text-danger"></small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="dob">Date Of Birth<span class="required">*</span></label>
+                    <input type="date" class="form-control" id="dob" name="dob" placeholder="Enter dob">
+                    <small id="dobError" class="form-text text-danger"></small>
+                </div>
+                <div class="custom-file mb-2">
+                    <input type="file" class="custom-file-input" id="attachment" name="attachment">
+                    <label class="custom-file-label" for="attachment">Upload Photo</label>
+                    <small id="attachmentError" class="form-text text-danger"></small>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="make">Make</label>
+                        <input type="text" class="form-control" id="make" name="make" placeholder="make">
+                        <small id="makeError" class="form-text text-danger"></small>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="model">Model</label>
+                        <input type="text" class="form-control" id="model" name="model" placeholder="model">
+                        <small id="modelError" class="form-text text-danger"></small>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="year">Year</label>
+                        <input type="text" class="form-control" id="year" name="year" placeholder="year">
+                        <small id="yearError" class="form-text text-danger"></small>
+                    </div>
+                </div> -->
+                <div class="form-group">
+                    <!-- <input type="hidden" value="" name="lat">
+                    <input type="hidden" value="" name="long"> -->
+                    <input type="hidden" value="register" name="form_type">
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+  </div>
+</section>
+<style>
+#myForm label .required{
+    color: red;
+}
+</style>
+<script>
+    $(document).ready(function() {
+        $('#myForm').on('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            let valid = true;
+
+            // Clear previous errors
+            $('#titleError').text('');
+            $('#firstNameError').text('');
+            $('#middleNameError').text('');
+            $('#lastNameError').text('');
+            $('#emailError').text('');
+            $('#passwordError').text('');
+            $('#confirmPasswordError').text('');
+            $('#streetAddressError').text('');
+            $('#streetAddress2Error').text('');
+            $('#cityError').text('');
+            $('#stateError').text('');
+            $('#zipcodeError').text('');
+            $('#countryError').text('');
+            $('#phoneError').text('');
+            $('#phone2Error').text('');
+            $('#dobError').text('');
+            $('#attachmentError').text('');
+            $('#commentError').text('');
+
+            // Title validation
+            /*const title = $('#title').val().trim();
+            if (title === '') {
+                $('#titleError').text('Title is required');
+                valid = false;
+            }*/
+
+            // First Name validation
+            const firstName = $('#first_name').val().trim();
+            if (firstName === '') {
+                $('#firstNameError').text('First Name is required');
+                valid = false;
+            }
+
+            // Last Name validation
+            const lastName = $('#last_name').val().trim();
+            if (lastName === '') {
+                $('#lastNameError').text('Last Name is required');
+                valid = false;
+            }
+
+            // Email validation
+            const email = $('#email').val().trim();
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email === '') {
+                $('#emailError').text('Email is required');
+                valid = false;
+            } else if (!emailPattern.test(email)) {
+                $('#emailError').text('Invalid email format');
+                valid = false;
+            }
+
+            // Password validation
+            const password = $('#password').val().trim();
+            if (password === '') {
+                $('#passwordError').text('Password is required');
+                valid = false;
+            } else if (password.length < 6) {
+                $('#passwordError').text('Password must be at least 6 characters long');
+                valid = false;
+            }
+
+            // Confirm Password validation
+            const confirmPassword = $('#confirm_password').val().trim();
+            if (confirmPassword === '') {
+                $('#confirmPasswordError').text('Confirm Password is required');
+                valid = false;
+            } else if (password !== confirmPassword) {
+                $('#confirmPasswordError').text('Passwords do not match');
+                valid = false;
+            }
+
+            // street address validation
+            /*const street_address = $('#street_address').val().trim();
+            if (street_address === '') {
+                $('#streetAddressError').text('street address is required');
+                valid = false;
+            }
+
+            // city validation
+            const city = $('#city').val().trim();
+            if (city === '') {
+                $('#cityError').text('city is required');
+                valid = false;
+            }
+
+            // state validation
+            const state = $('#state').val().trim();
+            if (state === '') {
+                $('#stateError').text('state is required');
+                valid = false;
+            }
+
+            // zipcode validation
+            const zipcode = $('#zipcode').val().trim();
+            if (zipcode === '') {
+                $('#zipcodeError').text('zipcode is required');
+                valid = false;
+            }*/
+
+            if (valid) {
+                const formData = new FormData(this);
+
+                $.ajax({
+                    url: 'process_form.php',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        $('#myForm')[0].reset();
+                        alert(response);
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        alert('Error:', textStatus, errorThrown);
+                    }
+                });
+            }
+        });
+    });
+</script>
+
+<?php
+include("footer.php"); 
+?>
